@@ -1,5 +1,6 @@
 template <typename DataType>
-class Singleton {
+class Singleton
+{
     public:
         Singleton(const Singleton&) = delete;
         Singleton<DataType>& operator=(Singleton const&) = delete;
@@ -10,5 +11,5 @@ class Singleton {
     private:
         DataType data_;
         Singleton();
-        Singleton(DataType);       
+        Singleton(DataType);
 };

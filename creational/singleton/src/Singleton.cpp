@@ -3,11 +3,11 @@
 #include <utility>
 
 template <typename DataType>
-Singleton<DataType>::Singleton(DataType data) 
+Singleton<DataType>::Singleton(DataType data)
 : data_(data) {}
 
 template <typename DataType>
-Singleton<DataType>::Singleton(Singleton&& singleton) noexcept 
+Singleton<DataType>::Singleton(Singleton&& singleton) noexcept
 : data_(std::move(singleton.data_)) {}
 
 template <typename DataType>
@@ -19,7 +19,7 @@ Singleton<DataType>& Singleton<DataType>::operator=(Singleton&& singleton) noexc
 }
 
 template <typename DataType>
-Singleton<DataType>& Singleton<DataType>::getInstance(DataType data) 
+Singleton<DataType>& Singleton<DataType>::getInstance(DataType data)
 {
     static Singleton<DataType> instance(data);
 
@@ -27,7 +27,7 @@ Singleton<DataType>& Singleton<DataType>::getInstance(DataType data)
 }
 
 template <typename DataType>
-DataType Singleton<DataType>::getData() 
+DataType Singleton<DataType>::getData()
 {
     return data_;
 }
