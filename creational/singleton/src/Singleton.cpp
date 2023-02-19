@@ -3,33 +3,33 @@
 #include <utility>
 
 template <typename DataType>
-Singleton<DataType>::Singleton(DataType data)
+DataCollecion<DataType>::DataCollecion(DataType data)
 : data_(data) {}
 
 template <typename DataType>
-Singleton<DataType>::Singleton(Singleton&& singleton) noexcept
-: data_(std::move(singleton.data_)) {}
+DataCollecion<DataType>::DataCollecion(DataCollecion&& DataCollecion) noexcept
+: data_(std::move(DataCollecion.data_)) {}
 
 template <typename DataType>
-Singleton<DataType>& Singleton<DataType>::operator=(Singleton&& singleton) noexcept
+DataCollecion<DataType>& DataCollecion<DataType>::operator=(DataCollecion&& DataCollecion) noexcept
 {
-    this->data_ = std::move(singleton.data_);
+    this->data_ = std::move(DataCollecion.data_);
 
     return *this;
 }
 
 template <typename DataType>
-Singleton<DataType>& Singleton<DataType>::getInstance(DataType data)
+DataCollecion<DataType>& DataCollecion<DataType>::getInstance(DataType data)
 {
-    static Singleton<DataType> instance(data);
+    static DataCollecion<DataType> instance(data);
 
     return instance;
 }
 
 template <typename DataType>
-DataType Singleton<DataType>::getData()
+DataType DataCollecion<DataType>::getData()
 {
     return data_;
 }
 
-template class Singleton<int>;
+template class DataCollecion<int>;

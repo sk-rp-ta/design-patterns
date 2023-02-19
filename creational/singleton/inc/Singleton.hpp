@@ -1,15 +1,15 @@
 template <typename DataType>
-class Singleton
+class DataCollecion
 {
     public:
-        Singleton(const Singleton&) = delete;
-        Singleton<DataType>& operator=(Singleton const&) = delete;
-        Singleton(Singleton&&) noexcept;
-        Singleton<DataType>& operator=(Singleton&&) noexcept;
-        static Singleton& getInstance(DataType data);
+        DataCollecion(const DataCollecion&) = delete;
+        DataCollecion<DataType>& operator=(DataCollecion const&) = delete;
+        DataCollecion(DataCollecion&&) noexcept;
+        DataCollecion<DataType>& operator=(DataCollecion&&) noexcept;
+        static DataCollecion& getInstance(DataType data);
         DataType getData();
     private:
         DataType data_;
-        Singleton();
-        Singleton(DataType);
+        DataCollecion();
+        DataCollecion(DataType);
 };
