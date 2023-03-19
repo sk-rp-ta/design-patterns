@@ -1,3 +1,5 @@
+#pragma once
+
 #include <string>
 
 class NPC
@@ -9,6 +11,7 @@ class NPC
         NPC& addPants(const std::string&);
         NPC& addShirt(const std::string&);
         NPC& addHat(const std::string&);
+    protected:
         std::string weapon_;
         std::string shield_;
         std::string boots_;

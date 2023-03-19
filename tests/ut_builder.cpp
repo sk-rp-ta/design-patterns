@@ -3,7 +3,7 @@
 #include "gtest/gtest.h"
 
 
-struct ut_builder : public testing::Test
+struct ut_builder : public testing::Test, public NPC
 {
     const std::string empty_string_;
 
@@ -18,41 +18,35 @@ struct ut_builder : public testing::Test
 
 TEST_F(ut_builder, test_npc_without_adding_any_field)
 {
-    NPC npc;
-
-    EXPECT_EQ(empty_string_, npc.weapon_);
-    EXPECT_EQ(empty_string_, npc.shield_);
-    EXPECT_EQ(empty_string_, npc.boots_);
-    EXPECT_EQ(empty_string_, npc.pants_);
-    EXPECT_EQ(empty_string_, npc.shirt_);
-    EXPECT_EQ(empty_string_, npc.hat_);
+    EXPECT_TRUE(weapon_.empty());
+    EXPECT_TRUE(shield_.empty());
+    EXPECT_TRUE(boots_.empty());
+    EXPECT_TRUE(pants_.empty());
+    EXPECT_TRUE(shirt_.empty());
+    EXPECT_TRUE(hat_.empty());
 }
 
 TEST_F(ut_builder, test_npc_with_all_fields_added)
 {
-    NPC npc;
-
-    npc.addWeapon(input_weapon_)
+    this->addWeapon(input_weapon_)
         .addShield(input_shield_)
         .addBoots(input_boots_)
         .addPants(input_pants_)
         .addShirt(input_shirt_)
         .addHat(input_hat_);
 
-    EXPECT_EQ(input_weapon_, npc.weapon_);
-    EXPECT_EQ(input_shield_, npc.shield_);
-    EXPECT_EQ(input_boots_, npc.boots_);
-    EXPECT_EQ(input_pants_, npc.pants_);
-    EXPECT_EQ(input_shirt_, npc.shirt_);
-    EXPECT_EQ(input_hat_, npc.hat_);
+    EXPECT_EQ(input_weapon_, weapon_);
+    EXPECT_EQ(input_shield_, shield_);
+    EXPECT_EQ(input_boots_, boots_);
+    EXPECT_EQ(input_pants_, pants_);
+    EXPECT_EQ(input_shirt_, shirt_);
+    EXPECT_EQ(input_hat_, hat_);
 }
 
 TEST_F(ut_builder, test_npc_with_overwrite_field)
 {
-    NPC npc;
-
-    npc.addWeapon(input_boots_)
+    this->addWeapon(input_boots_)
         .addWeapon(input_weapon_);
 
-    EXPECT_EQ(input_weapon_, npc.weapon_);
+    EXPECT_EQ(input_weapon_, weapon_);
 }
