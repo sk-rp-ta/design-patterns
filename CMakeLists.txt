@@ -13,4 +13,5 @@ include(FetchGtest)
 
 add_subdirectory(creational)
 
+enable_testing()
 add_subdirectory(tests)
