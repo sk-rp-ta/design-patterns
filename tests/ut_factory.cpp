@@ -7,21 +7,21 @@
 using TestedTypes = testing::Types<Arch, Fedora, Ubuntu>;
 
 template <typename TestedType>
-class TestAbstractFactory : public testing::Test
+class TestFactory : public testing::Test
 {
-    public:
-        TestedType impl_;
+public:
+    TestedType impl_;
 };
 
-TYPED_TEST_SUITE(TestAbstractFactory, TestedTypes);
+TYPED_TEST_SUITE(TestFactory, TestedTypes);
 
-TYPED_TEST(TestAbstractFactory, testSystemVersionOnStart)
+TYPED_TEST(TestFactory, testSystemVersionOnStart)
 {
     auto actualSystemVersion = this->impl_.getSystemVersion();
     EXPECT_EQ(actualSystemVersion, std::tuple(1, 0, 0));
 }
 
-TYPED_TEST(TestAbstractFactory, testSystemUpdate)
+TYPED_TEST(TestFactory, testSystemUpdate)
 {
     this->impl_.updateSystem();
 

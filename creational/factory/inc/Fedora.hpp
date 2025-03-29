@@ -1,12 +1,12 @@
 #pragma once
 
-#include "AbstractFactory.hpp"
+#include "Factory.hpp"
 
-class Ubuntu : public Linux
+class Fedora : public Linux
 {
     public:
-        Ubuntu();
-        ~Ubuntu();
+        Fedora();
+        ~Fedora();
         void updateSystem() override;
         Version getSystemVersion() override;
 };

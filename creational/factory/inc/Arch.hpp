@@ -1,6 +1,6 @@
 #pragma once
 
-#include "AbstractFactory.hpp"
+#include "Factory.hpp"
 
 class Arch : public Linux
 {

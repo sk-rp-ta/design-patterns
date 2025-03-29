@@ -1,4 +1,4 @@
-#include "AbstractFactory.hpp"
+#include "Factory.hpp"
 
 #include <iostream>
 

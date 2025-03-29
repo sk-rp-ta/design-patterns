@@ -1,4 +1,4 @@
-project(abstract-factory)
+project(factory)
 
 include_directories(inc)
 file(GLOB sources src/*.cpp)
